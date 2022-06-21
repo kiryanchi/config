@@ -33,10 +33,13 @@ require('paq') {
 	"mattn/emmet-vim";
 	"nvim-lua/plenary.nvim";
 	"mhartington/formatter.nvim";
+	"markvincze/panda-vim";
+	"williamboman/nvim-lsp-installer";
+	"SirVer/ultisnips";
+	"mlaursen/vim-react-snippets";
 }
 
 -- * ColorScheme
-require('nightfox').load('nightfox')
 
 -- * Keymapping
 map('', '<leader>b', ':buffers<CR>:buffer<Space>')

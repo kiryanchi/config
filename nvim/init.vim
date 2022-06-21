@@ -33,4 +33,6 @@ set noexpandtab			" tap을 스페이스바로 변환하지 않음
 
 " Enable just for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType javascript,html,css EmmetInstall
+autocmd FileType typescript,typescriptreact,javascript,javascriptreact,html,css EmmetInstall
+colorscheme nightfox
+let g:python3_host_prog = "/Users/kiryanchi/.pyenv/versions/3.10.2/bin/python3.10"

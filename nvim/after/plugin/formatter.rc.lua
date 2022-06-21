@@ -4,7 +4,7 @@ require('formatter').setup({
 			function()
 				return {
 					exe = "prettier",
-					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--write'},
+					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--print-width 100', '--trailing-comma all'},
 					stdin = true
 				}
 			end
@@ -12,8 +12,8 @@ require('formatter').setup({
 		javascriptreact = {
 			function()
 				return {
-					exe = "pretteir",
-					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--write'},
+					exe = "prettier",
+					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--print-width 100', '--trailing-comma all'},
 					stdin = true
 				}
 			end
@@ -26,13 +26,31 @@ require('formatter').setup({
 					stdin = true,
 				}
 			end
-			}
+			},
+		typescript = {
+			function()
+				return {
+					exe = "prettier",
+					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--print-width 100', '--trailing-comma all'},
+					stdin = true
+				}
+			end
+			},
+		typescriptreact = {
+			function()
+				return {
+					exe = "prettier",
+					args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote', '--print-width 100', '--trailing-comma all'},
+					stdin = true
+				}
+			end
+			},
 	}
 })
 
 vim.api.nvim_exec([[
 augroup FormatAutogroup
 	autocmd!
-	autocmd BufWritePost *.python,*.js FormatWrite
+	autocmd BufWritePost *.py,*.js,*.ts,*.tsx,*.jsx FormatWrite
 augroup END
 ]], true)
